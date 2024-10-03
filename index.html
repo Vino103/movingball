@@ -1,0 +1,180 @@
+<!-- <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <H1>
+        WELCOME
+    </H1>
+</head>
+<body>
+    <script>
+function randomColor() {
+    let palette = ["red", "blue", "pink"];
+    return palette[Math.floor(Math.random() * palette.length)];
+}
+
+function createBall() {
+    let div = document.createElement('div');
+    div.style.width = '50px';
+    div.style.height = '50px';
+    div.style.backgroundColor = randomColor();
+    div.style.borderRadius = '50%';
+    div.style.position = 'absolute';
+    div.style.left = Math.random() * 500 + 'px';
+    div.style.top = Math.random() * 500 + 'px';
+    document.body.appendChild(div);
+    return div;
+}
+var ball=createBall();
+let balls=[{ element: ball, posX: 0, posY: 0, velocityX: 5, velocityY: 3 }];
+
+var velocity1=200;
+var pos=0;
+var ball=document.getElementById("ball");
+var time=1000;
+function move(){
+
+    pos=pos+velocity;
+    ball.style.left=position+'px'
+ 
+    if(pos<500){
+        pos=pos+velocity;
+        div.style.top=posX+'px'
+        div.style.left=posY+'px'
+    }
+    if(pos>=500){
+        pos=pos-velocity;
+        div.style.top=posX+'px'
+        div.style.left=posY+'px'
+
+
+    }
+}
+setInterval(move, 1000);
+
+ </script> 
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden; /* Prevents scrollbars */
+        }
+    </style>
+</head>
+<body>
+    <script>
+      function randomColor() {
+            const palette = ["red", "blue", "pink"];
+            return palette[Math.floor(Math.random() * palette.length)];
+        }
+
+        
+        function createBall() {
+            const div = document.createElement('div');
+            div.style.width = '50px';
+            div.style.height = '50px';
+            div.style.backgroundColor = randomColor();
+            div.style.borderRadius = '50%'; 
+            div.style.position = 'absolute';
+            div.style.left = '0px';
+            div.style.top = '0px';  
+            document.body.appendChild(div);
+            return div;
+        }
+
+        
+        const ball = createBall();
+        let posX = 0; 
+        let posY = 0;
+        let velocityX = 5; 
+        let velocityY = 3;
+        const ballSize = 50; 
+        let bodyWidth = window.innerWidth;
+        let bodyHeight = window.innerHeight; 
+
+               function move() {
+            posX += velocityX;
+            posY += velocityY;
+
+                       if (posX + ballSize > bodyWidth) {
+                posX = bodyWidth - ballSize; // Correct position
+                velocityX = -velocityX; // Reverse direction
+            }
+           
+            if (posX < 0) {
+                posX = 0; // Correct position
+                velocityX = -velocityX; // Reverse direction
+            }
+            
+            if (posY + ballSize > bodyHeight) {
+                posY = bodyHeight - ballSize;
+                velocityY = -velocityY; 
+            }
+            
+            if (posY < 0) {
+                posY = 0; 
+                velocityY = -velocityY; 
+            }
+
+
+            ball.style.left = posX + 'px';
+            ball.style.top = posY + 'px';
+        }
+
+        
+        window.onresize = function() {
+            bodyWidth = window.innerWidth;
+            bodyHeight = window.innerHeight;
+        };
+
+        
+        setInterval(move, 20);
+    </script>
+</body>
+</html>  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id= "ball" style=" 
+        background-color: rgb(17, 189, 137);
+        border-radius: 50%;
+        position: absolute;
+        z-index: 5;
+        height: 100px;
+        width: 100px;
+        top: 0;
+        left: 100;">
+        </div>
+        <script>
+            var velocity=2;
+            var position=0;
+            var moveleft=1;
+            var ball=document.getElementById("ball");
+            function move(){
+                position+=moveleft*velocity;
+            if(position>=95||position<=0) {
+                moveleft*=-1;
+            }
+            ball.style.left=position+'%';
+            ball.style.top=position+'%';
+        }
+            setInterval(move,100);
+        </script>
+</body>
+</html>
